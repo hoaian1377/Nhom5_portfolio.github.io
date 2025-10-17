@@ -1,0 +1,1274 @@
+<!doctype html>
+<!-- Khai báo loại tài liệu là HTML5, giúp trình duyệt nhận diện và render đúng chuẩn HTML5 -->
+<html lang="vi">
+  <!-- Thẻ <html> gốc, lang="vi" chỉ định ngôn ngữ chính là tiếng Việt để hỗ trợ SEO, accessibility (như screen reader), và font fallback -->
+  <head>
+    <!-- Phần <head> chứa metadata, links đến tài nguyên ngoài, không hiển thị trực tiếp trên trang -->
+    <meta charset="utf-8" />
+    <!-- Meta charset: Định nghĩa bộ mã hóa ký tự là UTF-8, hỗ trợ đầy đủ ký tự Unicode, bao gồm tiếng Việt có dấu -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Meta viewport: Tối ưu hóa hiển thị trên thiết bị di động, width=device-width làm trang responsive, initial-scale=1 tránh zoom mặc định -->
+    <title>Võ Quốc Anh – Portfolio</title>
+    <!-- Tiêu đề trang: Hiển thị trên tab trình duyệt, dùng cho SEO, nên ngắn gọn và mô tả nội dung chính -->
+
+    <!-- Preconnect: Tối ưu hóa kết nối đến Google Fonts bằng cách thiết lập kết nối sớm, giảm thời gian tải -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Crossorigin: Cho phép CORS khi tải font từ Google Fonts, đảm bảo bảo mật -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Link Google Fonts: Tải font Inter với các trọng lượng từ 300 (light) đến 800 (extra bold), display=swap để tải font nhanh hơn bằng cách swap với fallback font -->
+
+    <!-- Link stylesheet: Kết nối file CSS tùy chỉnh styles.css để áp dụng style cho toàn bộ trang -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Thẻ <body> chứa toàn bộ nội dung hiển thị trên trang, bao gồm header, main, sections, footer -->
+    <!-- Phần header: Site header với background, particles (hiệu ứng animation), và navigation bar cố định ở đầu trang -->
+    <header class="site-header">
+      <!-- Div background: Lớp nền gradient hoặc hình ảnh cho header, thường dùng CSS để tạo hiệu ứng -->
+      <div class="header-background"></div>
+      <!-- Div particles: Lớp chứa hiệu ứng hạt bay (particles.js hoặc CSS animation) để tạo cảm giác động -->
+      <div class="header-particles"></div>
+
+      <!-- Nav: Thanh navigation chính, chứa logo, menu links, và actions -->
+      <nav class="nav">
+        <!-- Link brand: Liên kết logo thương hiệu, href="#" để tránh reload trang, class brand cho styling -->
+        <a href="#" class="brand">
+          <div class="brand-container">
+            <!-- Div glow: Hiệu ứng glow (ánh sáng lan tỏa) quanh logo, dùng CSS box-shadow hoặc filter -->
+            <div class="brand-glow"></div>
+            <!-- Span brand-mark: Phần logo chính với sự kiện onclick để xử lý click đơn/đúp, title cho tooltip -->
+            <span class="brand-mark" onclick="handleLogoClick(event)" title="Click 1 lần: Về Home | Click 2 lần: Xem ảnh">
+              <!-- Div ring: Vòng tròn quanh logo, có thể là border-radius hoặc pseudo-element CSS -->
+              <div class="logo-ring"></div>
+              <!-- Img logo: Hình ảnh logo, src là file JPG, alt cho accessibility và SEO -->
+              <img src="z7113622104463_883904aeedaaf80963b5ab0cf754380f.jpg" alt="Logo" />
+              <!-- Div tooltip: Tooltip hiển thị khi hover hoặc focus, chứa các text hướng dẫn -->
+              <div class="logo-tooltip">
+                <span class="tooltip-text">Click 1 lần: Về Home</span>
+                <span class="tooltip-text">Click 2 lần: Xem ảnh</span>
+              </div>
+            </span>
+            <!-- Span brand-text: Text tên thương hiệu, onclick để scroll về home, class text-gradient cho hiệu ứng gradient text -->
+            <span class="brand-text" onclick="scrollToHome()">
+              <span class="text-gradient">Võ Quốc Anh</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Div nav-menu: Container cho menu navigation trên desktop -->
+        <div class="nav-menu">
+          <!-- Ul nav-links: Danh sách không thứ tự các liên kết navigation, mỗi li là một item -->
+          <ul class="nav-links">
+            <!-- Li nav-item: Item Home, active class để highlight item hiện tại -->
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">
+                <!-- Span icon: Emoji icon cho item, tăng tính trực quan -->
+                <span class="nav-icon"></span>
+                <!-- Span text: Text label cho item -->
+                <span class="nav-text">Home</span>
+                <!-- Div indicator: Dấu chỉ báo (underline hoặc dot) cho active state -->
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <!-- Các li tương tự cho About, Career Goals, Skills, Certificates, Hobbies, Projects -->
+            <li class="nav-item">
+              <a class="nav-link" href="#about">
+                <span class="nav-icon"></span>
+                <span class="nav-text">About</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#career">
+                <span class="nav-icon"></span>
+                <span class="nav-text">Career Goals</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#technologies">
+                <span class="nav-icon"></span>
+                <span class="nav-text">Skills</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#certificates">
+                <span class="nav-icon"></span>
+                <span class="nav-text">Certificates</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#hobbies">
+                <span class="nav-icon"></span>
+                <span class="nav-text">Hobbies</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">
+                <span class="nav-icon"></span>
+                <span class="nav-text">Projects</span>
+                <div class="nav-indicator"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Div nav-actions: Container cho các nút hành động ở bên phải nav, như contact button và hamburger -->
+        <div class="nav-actions">
+          <!-- A btn primary: Nút chính để liên hệ, href đến section contact, class btn-glow cho hiệu ứng sáng -->
+          <a class="btn btn-primary" href="#contact">
+            <span class="btn-icon"></span>
+            <span class="btn-text">Contact</span>
+            <div class="btn-glow"></div>
+          </a>
+          <!-- Button hamburger: Nút menu hamburger cho mobile, aria-label và aria-expanded cho accessibility -->
+          <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <!-- Các span line: 3 đường kẻ ngang tạo thành icon hamburger, animate khi toggle menu -->
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main hero section: Phần giới thiệu chính (home), id="home" để anchor link từ nav -->
+    <main id="home" class="hero">
+      <!-- Div bg-gradient: Nền gradient cho hero, tạo chiều sâu visual -->
+      <div class="hero-bg-gradient"></div>
+      <!-- Div particles: Hiệu ứng hạt tương tự header -->
+      <div class="hero-particles"></div>
+      <!-- Div hero-inner container: Wrapper giới hạn width cho nội dung, class container cho centering và max-width -->
+      <div class="hero-inner container">
+        <!-- Div hero-content: Container flex cho copy (text) và visual (image) -->
+        <div class="hero-content">
+          <!-- Div hero-copy: Phần text bên trái -->
+          <div class="hero-copy">
+            
+            <!-- H1 headline: Tiêu đề chính, dùng <br> để line break, class gradient-text cho tên với gradient color -->
+            <h1 class="headline">
+              Xin chào, tôi là<br />
+              <span class="gradient-text">Võ Quốc Anh</span><br />
+              <!-- Span typing-text: Text "Full Stack Developer" với hiệu ứng typing animation từ JS -->
+              <span class="typing-text">Full Stack Developer</span>
+            </h1>
+            <!-- P subtext: Mô tả ngắn gọn về bản thân, giới thiệu vai trò và kỹ năng -->
+            <p class="subtext">
+              Là một sinh viên đam mê lập trình, chuyên về phát triển web full-stack.
+              Với kiến thức vững chắc về JavaScript, React, Node.js và các công nghệ web hiện đại,
+              tôi luôn tìm kiếm cơ hội để học hỏi và phát triển kỹ năng.
+            </p>
+            <!-- Div actions: Container cho các nút CTA (Call to Action) -->
+            <div class="actions">
+              <!-- A btn primary: Nút xem dự án, href đến portfolio, chứa text và SVG icon arrow -->
+              <a class="btn btn-primary" href="#portfolio">
+                <span>Xem Dự án</span>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <!-- A btn secondary: Nút liên hệ, chứa SVG icon chat và text -->
+              <a class="btn btn-secondary" href="#contact">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+                <span>Liên hệ</span>
+              </a>
+            </div>
+
+            <!-- Div stats: Container cho các thống kê nổi bật, thường animate counter từ 0 -->
+            <div class="stats">
+              <!-- Div stat: Stat 1 - Năm học tập -->
+              <div class="stat">
+                <div class="stat-icon">📚</div>
+                <div class="stat-content">
+                  <div class="value">4+</div>
+                  <div class="label">Năm Học Tập</div>
+                </div>
+              </div>
+              <!-- Div stat: Stat 2 - Dự án -->
+              <div class="stat">
+                <div class="stat-icon">💻</div>
+                <div class="stat-content">
+                  <div class="value">15+</div>
+                  <div class="label">Dự án đã làm</div>
+                </div>
+              </div>
+              <!-- Div stat: Stat 3 - Đam mê -->
+              <div class="stat">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                  <div class="value">100%</div>
+                  <div class="label">Đam mê học hỏi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Div hero-visual: Phần hình ảnh bên phải -->
+          <div class="hero-visual">
+            <!-- Div portrait-container: Container cho chân dung -->
+            <div class="portrait-container">
+              <!-- Div portrait-card floating: Card hình ảnh với class floating cho animation lơ lửng -->
+              <div class="portrait-card floating">
+                <!-- Div glow: Hiệu ứng glow quanh ảnh -->
+                <div class="portrait-glow"></div>
+                <!-- Div ring: Vòng tròn quanh ảnh -->
+                <div class="portrait-ring"></div>
+                <!-- Img: Ảnh chân dung, class clickable-image cho sự kiện click mở modal hoặc zoom -->
+                <img src="z7102664002599_a2928df9f26b4e76f7df9f36c70d68e9.jpg" alt="Võ Quốc Anh - Full Stack Developer" class="clickable-image" />
+                <!-- Div overlay: Lớp phủ khi hover, chứa content overlay -->
+                <div class="portrait-overlay">
+                  <div class="overlay-content">
+                    <h3>Võ Quốc Anh</h3>
+                    <p>Full Stack Developer</p>
+                    <!-- Div badges: Các badge công nghệ, span class badge cho styling pill-shaped -->
+                    <div class="overlay-badges">
+                      <span class="badge">React</span>
+                      <span class="badge">Node.js</span>
+                      <span class="badge">JavaScript</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Div floating-elements: Các element bay lơ lửng quanh ảnh để tăng visual appeal -->
+              <div class="floating-elements">
+                <div class="floating-element element-1">⚛️</div>
+                <div class="floating-element element-2">🚀</div>
+                <div class="floating-element element-3">💻</div>
+                <div class="floating-element element-4">🎯</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Section About: Phần thông tin cá nhân chi tiết, id="about" cho anchor -->
+    <section id="about" class="section about-detailed">
+      <!-- Div background-decoration: Decorator nền cho section, như pattern hoặc shape CSS -->
+      <div class="about-background-decoration"></div>
+      <!-- Div container: Wrapper giới hạn width -->
+      <div class="container">
+        <!-- Div about-header-modern: Header cho section với title và subtitle -->
+        <div class="about-header-modern">
+          <h2 class="section-title">Thông tin cá nhân</h2>
+          <p class="section-subtitle">Hành trình phát triển và những kỹ năng của tôi</p>
+        </div>
+        
+        <!-- Div about-layout: Layout flex hoặc grid cho sidebar và main -->
+        <div class="about-layout">
+          <!-- Div about-sidebar: Sidebar trái chứa profile info -->
+          <div class="about-sidebar">
+            <!-- Div portrait-frame: Frame cho ảnh profile -->
+            <div class="portrait-frame">
+              <!-- Div glow-ring: Glow và ring quanh frame ảnh -->
+              <div class="portrait-glow-ring"></div>
+              <!-- Img profile: Ảnh profile, clickable cho zoom -->
+              <img src="z7102511920353_c51b510cea6de6d5b576681cf631f16f.jpg" alt="Võ Quốc Anh" class="clickable-image" />
+            </div>
+            
+            <!-- Div profile-header: Header profile với tên, role, status -->
+            <div class="profile-header">
+              <h3 class="profile-name">Võ Quốc Anh</h3>
+              <p class="profile-role">Sinh viên - Full Stack Developer</p>
+              <div class="profile-status">
+                <!-- Span dot: Điểm sáng chỉ trạng thái online/active -->
+                <span class="status-dot"></span>
+                <span>Đang học tập, phát triển thêm bản thân</span>
+              </div>
+            </div>
+
+            <!-- Div quick-info: Danh sách info nhanh như contact details -->
+            <div class="quick-info">
+              <!-- Div info-item-detail: Item email -->
+              <div class="info-item-detail">
+                <div class="info-icon-detail">📧</div>
+                <div class="info-content">
+                  <span class="info-label-detail">Email</span>
+                  <!-- A mailto: Link email client khi click -->
+                  <a href="mailto:24242424vvaa@gmail.com">24242424vvaa@gmail.com</a>
+                </div>
+              </div>
+              <!-- Tương tự cho phone, location, birthday -->
+              <div class="info-item-detail">
+                <div class="info-icon-detail">📱</div>
+                <div class="info-content">
+                  <span class="info-label-detail">Phone</span>
+                  <a href="tel:0815451027">0815451027</a>
+                </div>
+              </div>
+              <div class="info-item-detail">
+                <div class="info-icon-detail">📍</div>
+                <div class="info-content">
+                  <span class="info-label-detail">Location</span>
+                  <span>TP. Hồ Chí Minh, Việt Nam</span>
+                </div>
+              </div>
+              <div class="info-item-detail">
+                <div class="info-icon-detail">🎂</div>
+                <div class="info-content">
+                  <span class="info-label-detail">Sinh nhật</span>
+                  <span>24/02/2005</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Div social-links-detail: Links mạng xã hội với SVG icons -->
+            <div class="social-links-detail">
+              <!-- A social-link-detail: GitHub -->
+              <a href="https://github.com/voquocanh" target="_blank" rel="noopener" class="social-link-detail">
+                <!-- SVG GitHub icon -->
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+              <!-- Tương tự cho Facebook và Instagram -->
+              <a href="https://facebook.com/voquocanh" target="_blank" rel="noopener" class="social-link-detail">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                <span>Facebook</span>
+              </a>
+              <a href="https://instagram.com/voquocanh" target="_blank" rel="noopener" class="social-link-detail">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.373C2.013 5.668 2 6.077 2 9.333v5.334c0 3.256.013 3.665.072 4.946.059 1.281.292 2.393 1.272 3.373.98.98 2.092 1.213 3.373 1.272 1.281.059 1.69.072 4.946.072s3.665-.013 4.946-.072c1.281-.059 2.393-.292 3.373-1.272.98-.98 1.213-2.092 1.272-3.373.059-1.281.072-1.69.072-4.946V9.333c0-3.256-.013-3.665-.072-4.946-.059-1.281-.292-2.393-1.272-3.373-.98-.98-2.092-1.213-3.373-1.272C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+                <span>Instagram</span>
+              </a>
+            </div>
+
+            <!-- A download CV: Link tải file PDF CV, attribute download để force download -->
+            <a href="VoQuocAnh-CV.pdf" class="btn-download-cv" download>
+              <!-- SVG download icon -->
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Tải CV
+            </a>
+
+            <!-- Div about-gallery: Gallery nhỏ với 1 item ảnh bổ sung -->
+            <div class="about-gallery">
+              <div class="gallery-item">
+                <!-- Img gallery: Ảnh gallery, clickable -->
+                <img src="z3417022935207_39f6e75248645417eae96b6928afd064.jpg" alt="Võ Quốc Anh - Portfolio Image" class="clickable-image" />
+                <!-- Div overlay: Overlay cho gallery item khi hover -->
+                <div class="gallery-overlay">
+                  <div class="gallery-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Div about-main: Nội dung chính bên phải, intro và timeline -->
+          <div class="about-main">
+            <!-- Div about-intro-card: Card giới thiệu bản thân -->
+            <div class="about-intro-card">
+              <h3 class="card-title">Tôi là Võ Quốc Anh</h3>
+              <!-- P desc: Mô tả chi tiết về bản thân và mục tiêu -->
+              <p class="card-desc">
+                Là một sinh viên đam mê lập trình, hiện đang theo học chuyên ngành Công nghệ Thông tin.
+                Với niềm đam mê mãnh liệt với việc phát triển web, tôi đã tự học và thực hành các công nghệ như
+                JavaScript, React, Node.js và các framework hiện đại khác.
+              </p>
+              <p class="card-desc">
+                Mục tiêu của tôi là trở thành một Full Stack Developer chuyên nghiệp, có khả năng xây dựng
+                những ứng dụng web chất lượng cao và mang lại giá trị thực tế cho người dùng. Tôi luôn tìm kiếm
+                cơ hội để học hỏi, thực hành và phát triển kỹ năng lập trình của mình.
+              </p>
+            </div>
+
+            <!-- Div timeline-section: Section timeline hành trình -->
+            <div class="timeline-section">
+              <!-- Div timeline-header: Header timeline với title và progress bar -->
+              <div class="timeline-header">
+                <h3 class="timeline-title">Hành trình học tập & làm việc</h3>
+                <div class="timeline-progress">
+                  <div class="progress-line"></div>
+                  <div class="progress-fill"></div>
+                </div>
+              </div>
+              <!-- Div timeline: Container cho các item timeline -->
+              <div class="timeline">
+                <!-- Div timeline-item: Item 1 - Đại học -->
+                <div class="timeline-item">
+                  <!-- Div dot: Điểm timeline, class active cho item hiện tại -->
+                  <div class="timeline-dot active"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <h4>Đại học Giao Thông Vận Tải TP.HCM</h4>
+                      <span class="timeline-date">2020 - 2024</span>
+                    </div>
+                    <p class="timeline-degree">Cử nhân Công nghệ Thông tin</p>
+                    <p class="timeline-desc">GPA: 3.5/4.0 · Đã học năm 4</p>
+                    <!-- Ul highlights: Danh sách bullet points thành tựu -->
+                    <ul class="timeline-highlights">
+                      <li>Chuyên ngành: Phát triển phần mềm & Web Development</li>
+                      <li>Đồ án: Hệ thống quản lý sinh viên với React & Node.js</li>
+                      <li>Tham gia CLB Lập trình và các cuộc thi coding</li>
+                      <li>Học bổng khuyến khích học tập năm 2022, 2023</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- Div timeline-item: Item 2 - Thực tập -->
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <h4>Thực tập sinh Frontend</h4>
+                      <span class="timeline-date">2023 - 2024</span>
+                    </div>
+                    <p class="timeline-company">Công ty TNHH ABC Tech</p>
+                    <ul class="timeline-highlights">
+                      <li>Phát triển giao diện người dùng cho ứng dụng web sử dụng React và TypeScript</li>
+                      <li>Tham gia xây dựng component library và design system</li>
+                      <li>Học hỏi quy trình làm việc Agile và Git workflow</li>
+                      <li>Thực hiện code review và testing cơ bản</li>
+                      <li>Hỗ trợ team trong việc tối ưu hiệu năng frontend</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- Div timeline-item: Item 3 - Freelance -->
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <h4>Freelance Web Developer</h4>
+                      <span class="timeline-date">2022 - Hiện tại</span>
+                    </div>
+                    <p class="timeline-company">Dự án cá nhân</p>
+                    <ul class="timeline-highlights">
+                      <li>Xây dựng website cho các doanh nghiệp nhỏ sử dụng HTML, CSS, JavaScript</li>
+                      <li>Phát triển ứng dụng web đơn giản với React và Node.js</li>
+                      <li>Tự học và áp dụng các công nghệ mới như Next.js, MongoDB</li>
+                      <li>Quản lý dự án và giao tiếp với khách hàng</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Career Goals: Mục tiêu nghề nghiệp, id="career" -->
+    <section id="career" class="section career-goals">
+      <!-- Div container: Wrapper -->
+      <div class="container">
+        <!-- Div career-header: Header section mục tiêu nghề nghiệp -->
+        <div class="career-header">
+          <!-- H2 title: Tiêu đề chính của section -->
+          <h2 class="section-title">Mục tiêu nghề nghiệp</h2>
+          <!-- P subtitle: Mô tả ngắn gọn về nội dung section -->
+          <p class="section-subtitle">Định hướng phát triển và khát vọng sự nghiệp của tôi</p>
+        </div>
+        
+        <!-- Div career-timeline: Timeline dots cho career -->
+        <div class="career-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-dots">
+            <div class="timeline-dot active"></div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-dot"></div>
+          </div>
+        </div>
+        
+        <!-- Div career-grid: Grid cho 3 cards mục tiêu -->
+        <div class="career-grid">
+          <!-- Div career-card primary: Card ngắn hạn -->
+          <div class="career-card career-primary">
+            <div class="card-glow"></div>
+            <div class="card-pattern"></div>
+            <div class="card-header">
+              <div class="card-number">01</div>
+              <div class="card-icon-container">
+                <div class="card-icon-bg"></div>
+                <span class="card-icon">🎯</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Mục tiêu ngắn hạn</h3>
+              <div class="card-period">
+                <!-- SVG clock icon -->
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                <span class="period-badge">6-12 tháng</span>
+              </div>
+              <div class="card-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <span class="progress-text">75% hoàn thành</span>
+              </div>
+            </div>
+            <!-- Ul card-list: Danh sách mục tiêu với check icons -->
+            <ul class="card-list">
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Hoàn thành tốt nghiệp đại học với điểm số cao</span>
+              </li>
+              <!-- Tương tự cho các li khác -->
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Nâng cao kỹ năng React, Node.js và TypeScript</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Xây dựng portfolio với 10+ dự án thực tế</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Tham gia các cuộc thi lập trình và hackathon</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Div career-card secondary: Card dài hạn -->
+          <div class="career-card career-secondary">
+            <div class="card-glow"></div>
+            <div class="card-pattern"></div>
+            <div class="card-header"> 
+              <div class="card-number">02</div>
+              <div class="card-icon-container">
+                <div class="card-icon-bg"></div>
+                <span class="card-icon">🚀</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Mục tiêu dài hạn</h3>
+              <div class="card-period">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                <span class="period-badge">2-5 năm</span>
+              </div>
+              <div class="card-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                <span class="progress-text">40% hoàn thành</span>
+              </div>
+            </div>
+            <ul class="card-list">
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Tìm được công việc Full-stack Developer tại công ty uy tín</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Học hỏi và phát triển kỹ năng từ các senior developers</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Xây dựng các dự án cá nhân có tác động thực tế</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Tham gia cộng đồng developers và chia sẻ kiến thức</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Div career-card highlight: Card tầm nhìn -->
+          <div class="career-card career-highlight">
+            <div class="card-glow"></div>
+            <div class="card-pattern"></div>
+            <div class="card-header">
+              <div class="card-number">03</div>
+              <div class="card-icon-container">
+                <div class="card-icon-bg"></div>
+                <span class="card-icon">🌟</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Tầm nhìn xa</h3>
+              <div class="card-period">
+                <!-- SVG vision icon (có lẽ là rocket hoặc star) -->
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+                <span class="period-badge">Vision</span>
+              </div>
+              <div class="card-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 20%"></div>
+                </div>
+                <span class="progress-text">20% hoàn thành</span>
+              </div>
+            </div>
+            <ul class="card-list">
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Trở thành Full-stack Developer chuyên nghiệp</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Tạo ra những sản phẩm có giá trị cho xã hội</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Mentor và hướng dẫn các bạn sinh viên khác</span>
+              </li>
+              <li class="list-item">
+                <div class="item-icon">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="item-text">Đóng góp vào sự phát triển công nghệ Việt Nam</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Skills: Công nghệ & Tools, id="technologies" (lưu ý id và href nav khớp là #technologies) -->
+    <section id="technologies" class="section skills">
+      <!-- Div container: Wrapper -->
+      <div class="container">
+        <!-- H2 title: Tiêu đề chính của section kỹ năng -->
+        <h2 class="section-title">Công nghệ & Tools</h2>
+        <!-- P subtitle: Mô tả ngắn gọn về nội dung section -->
+        <p class="section-subtitle">Những công nghệ và công cụ tôi sử dụng để xây dựng sản phẩm</p>
+        
+        <!-- Div skills-grid-modern: Grid 3 cards cho categories công nghệ -->
+        <div class="skills-grid-modern">
+          <!-- Div skill-card-modern: Card 1 - Frontend -->
+          <div class="skill-card-modern">
+            <div class="skill-number">01</div>
+            <div class="skill-icon-modern">⚛️</div>
+            <h3 class="skill-title">Frontend Development</h3>
+            <p class="skill-desc">UI/UX hiện đại, tối ưu hiệu năng, responsive design và accessibility.</p>
+            <!-- Div tags: Tags công nghệ, span cho mỗi tag -->
+            <div class="skill-tags">
+              <span>html</span>
+              <span>css</span>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>Redux</span>
+              <span>Tailwind CSS</span>
+              <span>TypeScript</span>
+              </div>
+            </div>
+
+          <!-- Div skill-card-modern: Card 2 - Backend -->
+          <div class="skill-card-modern">
+            <div class="skill-number">02</div>
+            <div class="skill-icon-modern">🟩</div>
+            <h3 class="skill-title">Backend Development</h3>
+            <p class="skill-desc">RESTful API, GraphQL, authentication, database design và security.</p>
+            <div class="skill-tags">
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>Prisma</span>
+              <span>REST</span>
+              <span>GraphQL</span>
+              </div>
+            </div>
+
+          <!-- Div skill-card-modern: Card 3 - Database -->
+          <div class="skill-card-modern">
+            <div class="skill-number">03</div>
+            <div class="skill-icon-modern">🗄️</div>
+            <h3 class="skill-title">Database & Storage</h3>
+            <p class="skill-desc">Thiết kế schema, query optimization, indexing và data migration.</p>
+            <div class="skill-tags">
+              <span>PostgreSQL</span>
+              <span>MongoDB</span>
+              <span>Redis</span>
+              <span>MySQL</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Div skills-progress-wrapper: Wrapper cho progress bars kỹ năng, id="skills" có lẽ cho JS target -->
+        <div id="skills" class="skills-progress-wrapper">
+          <!-- Div skills-list: List các skill items -->
+          <div class="skills-list">
+            <!-- Div skill-item: Item React/Next.js với header và bar -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">React / Next.js</span>
+                <span class="skill-level">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <!-- Tương tự cho các skill khác: Node/Express, TypeScript, Database, DevOps -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Node.js / Express</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">TypeScript</span>
+                <span class="skill-level">88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Database (SQL/NoSQL)</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">DevOps & Cloud</span>
+                <span class="skill-level">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+      <!-- Đóng div container (code gốc có duplicate </div>) -->
+      </div>
+    </section>
+
+    <!-- Section Certificates: Chứng chỉ, id="certificates" -->
+    <section id="certificates" class="section certificates">
+      <div class="container">
+        <!-- Div certificates-header: Header section chứng chỉ -->
+        <div class="certificates-header">
+          <!-- H2 title: Tiêu đề chính của section chứng chỉ -->
+          <h2 class="section-title">Chứng chỉ - Giải thưởng</h2>
+          <!-- P subtitle: Mô tả ngắn gọn về nội dung section -->
+          <p class="section-subtitle">Các chứng chỉ và giải thưởng đã đạt được trong quá trình học tập và làm việc</p>
+        </div>
+        
+        <!-- Div certificates-timeline: Timeline progress -->
+        <div class="certificates-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-progress">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+        
+        <!-- Div certificates-content: Nội dung, placeholder vì chưa có certs -->
+        <div class="certificates-content">
+          <div class="no-certificates">
+            <!-- Div no-cert-container: Container icon và content -->
+            <div class="no-cert-container">
+              <div class="no-cert-icon">
+                <div class="icon-glow"></div>
+                <div class="icon-ring"></div>
+                <span class="icon-emoji">🏆</span>
+              </div>
+              <div class="no-cert-content">
+                <h3 class="no-cert-title">Không có</h3>
+                <p class="no-cert-desc">Hiện tại chưa có chứng chỉ hoặc giải thưởng nào. Đang trong quá trình học tập và phát triển kỹ năng.</p>
+                <div class="no-cert-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                  </div>
+                  <span class="progress-text">Đang phát triển...</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Div no-cert-actions: Các action đang thực hiện -->
+            <div class="no-cert-actions">
+              <div class="action-item">
+                <div class="action-icon">📚</div>
+                <div class="action-content">
+                  <h4>Học tập tích cực</h4>
+                  <p>Đang theo đuổi các khóa học chuyên sâu</p>
+                </div>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">🎯</div>
+                <div class="action-content">
+                  <h4>Mục tiêu rõ ràng</h4>
+                  <p>Lập kế hoạch đạt được các chứng chỉ quan trọng</p>
+                </div>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">🚀</div>
+                <div class="action-content">
+                  <h4>Phát triển liên tục</h4>
+                  <p>Cập nhật kiến thức và kỹ năng mới nhất</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Hobbies: Sở thích, id="hobbies" -->
+    <section id="hobbies" class="section hobbies">
+      <div class="container">
+        <!-- H2 title: Tiêu đề chính của section sở thích -->
+        <h2 class="section-title">Sở thích</h2>
+        <!-- P subtitle: Mô tả ngắn gọn về nội dung section -->
+        <p class="section-subtitle">Những thứ tôi yêu thích làm ngoài giờ code</p>
+        
+        <!-- Div hobbies-grid: Grid 6 cards sở thích -->
+        <div class="hobbies-grid">
+          <!-- Div hobby-card: Card bóng đá -->
+          <div class="hobby-card">
+            <div class="hobby-icon">⚽</div>
+            <h3 class="hobby-title">Bóng đá</h3>
+            <p class="hobby-desc">Đam mê bóng đá, thường xuyên chơi với bạn bè vào cuối tuần và theo dõi các giải đấu lớn.</p>
+          </div>
+          
+          <!-- Tương tự cho các hobby khác: Lập trình, Đọc sách, Nghe nhạc, Chạy bộ, Gaming -->
+          <div class="hobby-card">
+            <div class="hobby-icon">💻</div>
+            <h3 class="hobby-title">Lập trình</h3>
+            <p class="hobby-desc">Yêu thích việc code và học các công nghệ mới, thường dành thời gian rảnh để làm dự án cá nhân.</p>
+          </div>
+          
+          <div class="hobby-card">
+            <div class="hobby-icon">📚</div>
+            <h3 class="hobby-title">Đọc sách</h3>
+            <p class="hobby-desc">Thích đọc sách về công nghệ, lập trình và phát triển bản thân để mở rộng kiến thức.</p>
+          </div>
+          
+          <div class="hobby-card">
+            <div class="hobby-icon">🎵</div>
+            <h3 class="hobby-title">Nghe nhạc</h3>
+            <p class="hobby-desc">Thích nghe nhạc khi học và code, từ Lo-fi đến EDM, giúp tập trung và sáng tạo hơn.</p>
+          </div>
+          
+          <div class="hobby-card">
+            <div class="hobby-icon">🏃</div>
+            <h3 class="hobby-title">Chạy bộ</h3>
+            <p class="hobby-desc">Thường xuyên chạy bộ để giữ gìn sức khỏe và giải tỏa căng thẳng sau giờ học.</p>
+          </div>
+          
+          <div class="hobby-card">
+            <div class="hobby-icon">🎮</div>
+            <h3 class="hobby-title">Gaming</h3>
+            <p class="hobby-desc">Thỉnh thoảng chơi game để giải trí và rèn luyện tư duy logic, phản xạ nhanh.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Projects: Dự án, id="portfolio" -->
+    <section id="portfolio" class="section projects">
+      <div class="container">
+        <h2 class="section-title">Những dự án tiêu biểu</h2>
+        <p class="section-subtitle">Những dự án tôi tự hào đã xây dựng và hoàn thành</p>
+    
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-number">01</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Portfolio Website" class="clickable-image" />
+              <div class="project-overlay"><div class="project-icon">💼</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Portfolio Website</h3>
+                  <span class="project-status">Completed</span>
+                </div>
+                <p class="project-desc">Website portfolio cá nhân hiện đại với design đẹp mắt, responsive hoàn hảo và hiệu ứng animation mượt mà.</p>
+                <div class="project-tech">
+                  <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-number">02</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Student Management System" />
+              <div class="project-overlay"><div class="project-icon">🎓</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Hệ thống quản lý sinh viên</h3>
+                  <span class="project-status">Completed</span>
+                </div>
+                <p class="project-desc">Ứng dụng web quản lý sinh viên với giao diện thân thiện, CRUD đầy đủ và thống kê báo cáo chi tiết.</p>
+                <div class="project-tech">
+                  <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-number">03</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Todo App" />
+              <div class="project-overlay"><div class="project-icon">✅</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Todo App</h3>
+                  <span class="project-status">Completed</span>
+                </div>
+                <p class="project-desc">Ứng dụng quản lý công việc cá nhân đơn giản, thêm/sửa/xóa task và lưu trữ bằng LocalStorage.</p>
+                <div class="project-tech">
+                  <span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>LocalStorage</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-number">04</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="E-commerce Website" />
+              <div class="project-overlay"><div class="project-icon">🛒</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Website Thương Mại Điện Tử</h3>
+                  <span class="project-status">In Progress</span>
+                </div>
+                <p class="project-desc">Website bán hàng với giỏ hàng, thanh toán, quản lý đơn hàng và đánh giá sản phẩm.</p>
+                <div class="project-tech">
+                  <span>React</span><span>Node.js</span><span>MySQL</span><span>Stripe API</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 5 -->
+          <div class="project-card">
+            <div class="project-number">05</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Weather App" />
+              <div class="project-overlay"><div class="project-icon">🌤️</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Ứng Dụng Thời Tiết</h3>
+                  <span class="project-status">Completed</span>
+                </div>
+                <p class="project-desc">Ứng dụng thời tiết thời gian thực với giao diện đẹp và dự báo 7 ngày.</p>
+                <div class="project-tech">
+                  <span>JavaScript</span><span>API</span><span>CSS3</span><span>Geolocation</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 6 -->
+          <div class="project-card">
+            <div class="project-number">06</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Blog Platform" />
+              <div class="project-overlay"><div class="project-icon">📝</div></div>
+            </div>
+            <div class="project-content">
+              <div class="project-main-content">
+                <div class="project-header">
+                  <h3 class="project-title">Nền Tảng Blog</h3>
+                  <span class="project-status">Completed</span>
+                </div>
+                <p class="project-desc">Blog cá nhân với editor markdown, comment, tags và tìm kiếm bài viết thông minh.</p>
+                <div class="project-tech">
+                  <span>Next.js</span><span>TypeScript</span><span>Prisma</span><span>PostgreSQL</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a href="#" target="_blank" class="btn-project btn-primary-project">🔗 Live Demo</a>
+                <a href="#" target="_blank" class="btn-project btn-secondary-project">💻 GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+<!-- Section Contact: Phần liên hệ, id="contact" -->
+<section id="contact" class="section contact">
+  <div class="container">
+          <!-- H2 title: Tiêu đề chính của section liên hệ -->
+          <h2 class="section-title">Liên hệ với tôi</h2>
+          <!-- P subtitle: Mô tả ngắn gọn về nội dung section -->
+          <p class="section-subtitle">Hãy kết nối để cùng nhau tạo ra những dự án tuyệt vời</p>
+  
+  <!-- Div contact-wrapper: Wrapper cho info cards và form -->
+  <div class="contact-wrapper">
+  <!-- Div contact-info-cards: Grid hoặc flex cho 3 cards info -->
+  <div class="contact-info-cards">
+    <!-- Div contact-info-card: Card email -->
+    <div class="contact-info-card">
+      <div class="contact-icon">📧</div>
+      <h3>Email</h3>
+      <a href="mailto:24242424vvaa@gmail.com">24242424vvaa@gmail.com</a>
+    </div>
+    <!-- Div contact-info-card: Card phone -->
+    <div class="contact-info-card">
+      <div class="contact-icon">📱</div>
+      <h3>Phone</h3>
+      <a href="tel:0815451027">0815451027</a>
+    </div>
+    <!-- Div contact-info-card: Card location -->
+    <div class="contact-info-card">
+      <div class="contact-icon">📍</div>
+      <h3>Location</h3>
+      <p>TP. Hồ Chí Minh, Việt Nam</p>
+    </div>
+  </div>
+  
+  <!-- Form contact-form-modern: Form gửi tin nhắn, autocomplete="off" để tránh auto-fill không mong muốn -->
+  <form class="contact-form-modern" autocomplete="off">
+    <!-- Div form-header: Header form với title và subtitle -->
+    <div class="form-header">
+      <h3 class="form-title">Gửi tin nhắn</h3>
+      <p class="form-subtitle">Điền thông tin và tôi sẽ phản hồi sớm nhất</p>
+    </div>
+    <!-- Div form-group: Group input name -->
+    <div class="form-group">
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required />
+    </div>
+    <!-- Div form-group: Group input email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required />
+    </div>
+    <!-- Div form-group: Group textarea message -->
+    <div class="form-group">
+      <label for="message">Nội dung</label>
+      <textarea id="message" name="message" rows="5" placeholder="Nhập nội dung liên hệ của bạn..." required></textarea>
+    </div>
+    <!-- Button submit: Nút gửi form, chứa SVG icon send và text -->
+    <button type="submit" class="btn-submit ">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+      Gửi tin nhắn
+    </button>
+  </form>
+  </div>
+  </div>
+  </section>
+  
+  <!-- Footer: Phần chân trang, class site-footer -->
+  <footer class="site-footer">
+  <div class="container">
+  <!-- Div footer-content: Container chính cho nội dung footer, thường flex layout -->
+  <div class="footer-content">
+  <!-- Div footer-brand: Phần brand với logo và desc -->
+  <div class="footer-brand">
+    <!-- Div footer-logo: Logo footer -->
+    <div class="footer-logo">
+      <!-- Span footer-mark: Mark logo với onclick và title tooltip tương tự header -->
+      <span class="footer-mark" onclick="handleLogoClick(event)" title="Click 1 lần: Về Home | Click 2 lần: Xem ảnh">
+        <img src="z7113622104463_883904aeedaaf80963b5ab0cf754380f.jpg" alt="Logo" />
+        <div class="logo-tooltip">
+          <span class="tooltip-text">Click 1 lần: Về Home</span>
+          <span class="tooltip-text">Click 2 lần: Xem ảnh</span>
+        </div>
+      </span>
+      <!-- Span footer-text: Text tên, onclick scroll home -->
+      <span class="footer-text" onclick="scrollToHome()">Võ Quốc Anh</span>
+    </div>
+    <!-- P footer-desc: Mô tả ngắn -->
+    <p class="footer-desc">Full Stack Web Developer<br/>Building amazing web experiences</p>
+    <!-- Div footer-social: Social links tương tự about sidebar -->
+    <div class="footer-social">
+      <a href="https://github.com/voquocanh" target="_blank" aria-label="GitHub" rel="noopener" class="social-link">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://facebook.com/voquocanh" target="_blank" aria-label="Facebook" rel="noopener" class="social-link">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://instagram.com/voquocanh" target="_blank" aria-label="Instagram" rel="noopener" class="social-link">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.373C2.013 5.668 2 6.077 2 9.333v5.334c0 3.256.013 3.665.072 4.946.059 1.281.292 2.393 1.272 3.373.98.98 2.092 1.213 3.373 1.272 1.281.059 1.69.072 4.946.072s3.665-.013 4.946-.072c1.281-.059 2.393-.292 3.373-1.272.98-.98 1.213-2.092 1.272-3.373.059-1.281.072-1.69.072-4.946V9.333c0-3.256-.013-3.665-.072-4.946-.059-1.281-.292-2.393-1.272-3.373-.98-.98-2.092-1.213-3.373-1.272C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Div footer-links: Phần quick links navigation -->
+  <div class="footer-links">
+    <!-- H4: Tiêu đề phần quick links -->
+    <h4>Quick Links</h4>
+    <!-- Ul: Danh sách các liên kết navigation chính (lưu ý một số href cần sửa để khớp với id sections) -->
+    <ul>
+      <!-- Li: Link về trang chủ -->
+      <li><a href="#home">Home</a></li>
+      <!-- Li: Link về phần giới thiệu -->
+      <li><a href="#about">About</a></li>
+      <!-- Li: Link về mục tiêu nghề nghiệp (href cần sửa từ #Career Goals thành #career) -->
+      <li><a href="#career">Career Goals</a></li>
+      <!-- Li: Link về kỹ năng -->
+      <li><a href="#technologies">Skills</a></li>
+      <!-- Li: Link về chứng chỉ (href cần sửa từ Certificates thành #certificates) -->
+      <li><a href="#certificates">Certificates</a></li>
+      <!-- Li: Link về sở thích (href cần sửa từ Hobbies thành #hobbies) -->
+      <li><a href="#hobbies">Hobbies</a></li>
+      <!-- Li: Link về dự án (href cần sửa từ #Projects thành #portfolio) -->
+      <li><a href="#portfolio">Projects</a></li>
+      <!-- Li: Link về liên hệ -->
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  
+  <!-- Div footer-contact: Phần thông tin liên hệ chi tiết -->
+  <div class="footer-contact">
+    <!-- H4: Tiêu đề phần liên hệ -->
+    <h4>Get In Touch</h4>
+    <!-- Div contact-item: Item email với SVG envelope icon -->
+    <div class="contact-item">
+      <!-- SVG: Icon envelope cho email -->
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <!-- A mailto: Link email để mở email client -->
+      <a href="mailto:24242424vvaa@gmail.com">24242424vvaa@gmail.com</a>
+    </div>
+    <!-- Div contact-item: Item phone với SVG phone icon -->
+    <div class="contact-item">
+      <!-- SVG: Icon phone cho số điện thoại -->
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <!-- A tel: Link số điện thoại để gọi -->
+      <a href="tel:0815451027">0815451027</a>
+    </div>
+    <!-- Div contact-item: Item location với SVG pin icon -->
+    <div class="contact-item">
+      <!-- SVG: Icon pin cho địa chỉ -->
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <!-- Span: Text địa chỉ (không phải link) -->
+      <span>TP. Hồ Chí Minh, Việt Nam</span>
+    </div>
+  </div>
+  
+  <!-- Div footer-bottom: Phần cuối footer với thông tin bản quyền -->
+  <div class="footer-bottom">
+    <!-- P copyright: Thông tin bản quyền và năm -->
+    <p>&copy; 2025 Võ Quốc Anh. All rights reserved.</p>
+    <!-- P footer-made: Thông tin tác giả tạo ra website -->
+    <p class="footer-made">Made with by Võ Quốc Anh</p>
+  </div>
+  </footer>
+  
+  <!-- Div logo-modal: Modal popup hiển thị khi double-click logo, id="logoModal" để JavaScript target -->
+  <div id="logoModal" class="logo-modal">
+    <!-- Div modal-backdrop: Lớp nền tối che toàn bộ trang khi modal mở, onclick để đóng modal -->
+    <div class="modal-backdrop" onclick="closeLogoModal()"></div>
+    <!-- Div modal-content: Container chính chứa nội dung modal -->
+    <div class="modal-content">
+      <!-- Button modal-close: Nút đóng modal với ký tự &times; (×), onclick để đóng -->
+      <button class="modal-close" onclick="closeLogoModal()">&times;</button>
+      <!-- Div modal-body: Phần body chứa nội dung chính của modal -->
+      <div class="modal-body">
+        <!-- Img: Ảnh logo/profile trong modal -->
+        <img src="z7113622104463_883904aeedaaf80963b5ab0cf754380f.jpg" alt="Võ Quốc Anh" />
+        <!-- H3: Tên trong modal -->
+        <h3>Võ Quốc Anh</h3>
+        <!-- P: Chức danh/vai trò trong modal -->
+        <p>Full Stack Web Developer</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Script: Link đến file JavaScript scripts.js chứa tất cả logic tương tác như scroll, modal, typing animation, particles, hamburger toggle, v.v. -->
+  <script src="scripts.js"></script>
+  </body>
+  <!-- Kết thúc thẻ body, chứa toàn bộ nội dung hiển thị của trang -->
+  </html>
+  <!-- Kết thúc thẻ html, kết thúc toàn bộ tài liệu HTML -->

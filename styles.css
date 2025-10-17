@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f3f6fc;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+}
+.logo span {
+  color: #0078ff;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: #0078ff;
+}
+
+/* Intro */
+.intro {
+  margin-top: 100px;
+  text-align: center;
+  padding: 80px 20px;
+}
+.intro h1 {
+  font-size: 42px;
+  color: #0078ff;
+  margin-bottom: 20px;
+}
+.intro p {
+  font-size: 18px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Member Sections */
+.member {
+  padding: 100px 60px;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+.member.alt {
+  background: #eaf0ff;
+}
+.member-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1100px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.member.alt .member-content {
+  flex-direction: row-reverse;
+}
+.image img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.image img:hover {
+  transform: scale(1.05);
+}
+.info {
+  max-width: 500px;
+}
+.info h2 {
+  font-size: 28px;
+  color: #0078ff;
+}
+.info h4 {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0 20px;
+}
+.info p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 25px;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #0078ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #005fd1;
+  box-shadow: 0 4px 15px rgba(0, 120, 255, 0.4);
+}
+
+/* Footer */
+footer {
+  background: #0078ff;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .member-content {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .image img {
+    width: 250px;
+    height: 250px;
+  }
+}
