@@ -8,5 +8,5 @@ entries.forEach(entry => {
 });
 }, { threshold: 0.2 });
 
-// Quan sát tất cả các phần cần hiệu ứng
+
 document.querySelectorAll('.intro, .member, footer').forEach(el => observer.observe(el));
