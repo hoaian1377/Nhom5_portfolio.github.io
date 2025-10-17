@@ -4,13 +4,16 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #f3f6fc;
   color: #333;
 }
 
+/* ========================== */
 /* Navbar */
+/* ========================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -24,57 +27,102 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   z-index: 10;
 }
+
 .logo {
   font-weight: 700;
   font-size: 24px;
 }
+
 .logo span {
   color: #0078ff;
 }
+
 nav ul {
   display: flex;
   list-style: none;
   gap: 25px;
 }
+
 nav ul li a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
 }
+
 nav ul li a:hover {
   color: #0078ff;
 }
 
+/* ========================== */
 /* Intro */
+/* ========================== */
 .intro {
   margin-top: 100px;
   text-align: center;
   padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
+
+.intro.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .intro h1 {
   font-size: 42px;
   color: #0078ff;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
+
+.intro.visible h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .intro p {
   font-size: 18px;
   color: #555;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
+.intro.visible p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================== */
 /* Member Sections */
+/* ========================== */
 .member {
   padding: 100px 60px;
   background: white;
   display: flex;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
+
+.member.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .member.alt {
   background: #eaf0ff;
 }
+
 .member-content {
   display: flex;
   align-items: center;
@@ -84,9 +132,41 @@ nav ul li a:hover {
   width: 100%;
   flex-wrap: wrap;
 }
+
 .member.alt .member-content {
   flex-direction: row-reverse;
 }
+
+/* Ảnh và chữ trượt riêng */
+.member-content .image,
+.member-content .info {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.member-content .image {
+  transform: translateX(-50px);
+}
+
+.member-content .info {
+  transform: translateX(50px);
+}
+
+.member.visible .image,
+.member.visible .info {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.member.visible .image {
+  transition-delay: 0.2s;
+}
+
+.member.visible .info {
+  transition-delay: 0.4s;
+}
+
+/* Ảnh */
 .image img {
   width: 350px;
   height: 350px;
@@ -95,27 +175,42 @@ nav ul li a:hover {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
+
 .image img:hover {
   transform: scale(1.05);
 }
+
+/* Chữ */
 .info {
   max-width: 500px;
 }
+
 .info h2 {
   font-size: 28px;
   color: #0078ff;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.member.visible .info h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .info h4 {
   font-size: 18px;
   color: #555;
   margin: 10px 0 20px;
 }
+
 .info p {
   font-size: 16px;
   line-height: 1.7;
   color: #444;
   margin-bottom: 25px;
 }
+
 .btn {
   display: inline-block;
   padding: 12px 26px;
@@ -126,26 +221,40 @@ nav ul li a:hover {
   font-weight: 600;
   transition: 0.3s;
 }
+
 .btn:hover {
   background: #005fd1;
   box-shadow: 0 4px 15px rgba(0, 120, 255, 0.4);
 }
 
+/* ========================== */
 /* Footer */
+/* ========================== */
 footer {
   background: #0078ff;
   color: white;
   text-align: center;
   padding: 20px 0;
   margin-top: 50px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
+footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================== */
 /* Responsive */
+/* ========================== */
 @media (max-width: 768px) {
   .member-content {
     flex-direction: column !important;
     text-align: center;
   }
+
   .image img {
     width: 250px;
     height: 250px;
